@@ -69,14 +69,17 @@ var ServiceContainer = require('service-container');
 // any environment-specific parameters
 var options = {
   env: 'test',
-  ignoreNodeModulesDirectory: true
+  ignoreNodeModulesDirectory: true,
+  allowJsFiles: false
 };
 var container = ServiceContainer.buildContainer(__dirname, options);
 ```
 
-There are two available options:
+Available Options:
 * `env` - Which will cause the builder to search for `services_[ENV].json` files
 * `ignoreNodeModulesDirectory` - Which will prevent a recursive search through your dependent modules
+* `allowJsFiles` - Look for _services.js_ and _parameters.js_ files in addition
+  to JSON files
 
 
 Get an instance of a service like:
